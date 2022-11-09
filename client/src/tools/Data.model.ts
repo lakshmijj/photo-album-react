@@ -2,10 +2,6 @@
 
 // JSON data datatypes
 
-export interface Image {
-    filename: string;
-}
-
 export interface Photos{
     photos: Photo[];
 }
@@ -59,6 +55,10 @@ export interface GalleryProps{
     showGallery: boolean,
     setSelectedContent: Function;
     collections: Photo[]
+}
+
+export interface Image {
+    filename: string;
 }
 
 // export class ViewProps{

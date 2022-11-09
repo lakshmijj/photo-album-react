@@ -65,7 +65,7 @@ function Comment({selectedContent, collections, setCollections, toggleComment, s
               maxLength={200} value={comment} onChange={(e:any) => setComment(e.target.value)}></textarea>
           </div>
           <div className="mt-2.5">
-              <button className={`border-none py-1.5 px-2 text-sm align-center text-xs decoration-0 rounded-sm mr-[3px] ${(author && comment) ? 'bg-[#428bca]' : 'bg-[#C0C0C0]'} text-[#fff] focus:outline-none hover:bg-[#245682]`} onClick={addComment}>Ok</button>
+              <button className={`border-none py-1.5 px-2 text-sm align-center text-xs decoration-0 rounded-sm mr-[3px] ${(author && comment) ? 'bg-[#428bca] hover:bg-[#245682]' : 'bg-[#C0C0C0]'} text-[#fff] focus:outline-none`} onClick={addComment}>Ok</button>
               <button className="border-none py-1.5 px-2 text-sm align-center text-xs decoration-0 rounded-sm mr-[3px] bg-[#C0C0C0] text-[#fff] focus:outline-none hover:bg-[#245682]" onClick={collapseComment}>Cancel</button>
           </div>
       </div>

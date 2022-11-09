@@ -43,8 +43,7 @@ const onResponse = (result:Photos) => {
   const [toggleComment, setToggleComment] = React.useState<boolean>(false);
   const [showGallery, setShowGallery] = React.useState<boolean>(false);
 
-  //const [content, setContent] = React.useState<Photo[]>([]);
-
+  
   const galleryCollection = React.useRef<Photo[]>([]);
   // -----------------------------------------------------------------
 
@@ -55,15 +54,26 @@ const onResponse = (result:Photos) => {
   }, []);
 
 
-  return (
-    <>
-    <LoadingOverlay bgColor="#035074" spinnerColor="#FFFFFF" enabled={loading} />
+  return (  
+    <>       
+    <LoadingOverlay bgColor="#FFFFFF" spinnerColor="#fb3" enabled={loading} />
     <Header />
-    <Jump selectedContent={selectedContent} collections={collections} setSelectedContent={setSelectedContent} enablePrev={enablePrev} setEnablePrev={setEnablePrev} enableNext={enableNext} setEnableNext={setEnableNext} setToggleComment={setToggleComment} setShowGallery={setShowGallery} toggleComment={toggleComment} showGallery={showGallery}/>
-    <Gallery showGallery={showGallery} setSelectedContent={setSelectedContent} collections={collections}/>
-    <Comment selectedContent={selectedContent} collections={collections} setCollections={setCollections} toggleComment={toggleComment} setToggleComment={setToggleComment} setLoading={setLoading}/>
-    <Content selectedContent={selectedContent} collections={collections}/>
-    </> 
+    {
+      (collections.length > 0) ?    
+      <>
+      <Jump selectedContent={selectedContent} collections={collections} setSelectedContent={setSelectedContent} enablePrev={enablePrev} setEnablePrev={setEnablePrev} enableNext={enableNext} setEnableNext={setEnableNext} setToggleComment={setToggleComment} setShowGallery={setShowGallery} toggleComment={toggleComment} showGallery={showGallery}/>
+      <Gallery showGallery={showGallery} setSelectedContent={setSelectedContent} collections={collections}/>
+      <Comment selectedContent={selectedContent} collections={collections} setCollections={setCollections} toggleComment={toggleComment} setToggleComment={setToggleComment} setLoading={setLoading}/>
+      <Content selectedContent={selectedContent} collections={collections}/>
+      </>
+     : 
+      <div className="">
+          There are no photos to display at this time.
+      </div>
+    }
+    </>
+     
+    
   );
 
 }
